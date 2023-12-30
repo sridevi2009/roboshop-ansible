@@ -41,7 +41,7 @@
        dest: /etc/yum.repos.d/catalogue.service  
 
   - name: daemon reload and start
-    ansible.builtin.systemd_services:
+    ansible.builtin.systemd_service:
       daemon_reload: true
 
   - name: copy mongodb.repo
