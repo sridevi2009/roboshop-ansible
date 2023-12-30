@@ -52,7 +52,16 @@
   - name: install mongodb client
     ansible.builtin.package:
      name: mongodb-org-shell
-     state: present            
+     state: present  
+
+  - name: get the categories count
+    ansible.builtin.command:  mongo --host mongodb.gopisri.cloud --quiet --eval 'db = db.getSiblingDB("catalogue"); db.products.count()'
+    register: product_count
+
+  - name: print the count
+    ansible.builtin.debug:
+     msg: "product count: {{product_count}}"
+           
  
   
   
