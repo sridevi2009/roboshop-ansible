@@ -59,8 +59,8 @@
     register: product_count
 
   # - name: print the count
-  #   ansible.builtin.debug:
-  #     msg: "product count: {{product_count}}"
+  # ansible.builtin.debug:
+  #  msg: "product count: {{product_count}}"
            
   - name: load catalogue data
     ansible.builtin.command: mongo --host mongodb.gopisri.cloud < /app/schema/catalogue.js 
