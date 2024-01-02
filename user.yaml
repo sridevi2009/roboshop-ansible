@@ -54,7 +54,7 @@
      name: mongodb-org-shell
      state: present  
 
-  - name: get the categories count
+  - name: get the user count
     ansible.builtin.command:  mongo --host mongodb.gopisri.cloud --quiet --eval 'db = db.getSiblingDB("users"); db.users.count()'
     register: user_count
 
