@@ -10,7 +10,7 @@
 
   - name: install rabbitmq server
     ansible.builtin.dnf:
-       name: rabbitmq server
+       name: rabbitmq-server
        state: present
 
   - name: start and enable rabbitmq
