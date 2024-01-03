@@ -67,7 +67,7 @@
        msg: "schema output: {{schema}}"
 
   - name: load cities data
-    ansible.builtin.command: mysql -h mysql.gopisri.cloud -uroot -p{{mysql_password}} < /app/schema/shipping.sql 
+    ansible.builtin.command: "mysql -h mysql.gopisri.cloud -uroot -p{{mysql_password}} < /app/schema/shipping.sql" 
     when: schema.stdout != "1"
 
 
