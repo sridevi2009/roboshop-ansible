@@ -25,7 +25,7 @@
 
   - name: download shipping application
     ansible.builtin.get_url:
-       url: curl -L -o /tmp/shipping.zip https://roboshop-builds.s3.amazonaws.com/shipping.zip
+       url: https://roboshop-builds.s3.amazonaws.com/shipping.zip
        dest: /tmp
 
   - name: extract shipping application
@@ -65,6 +65,11 @@
   - name: print output
     ansible.builtin.debug:
        msg: "schema output: {{schema}}"
+
+  - name: load cities data
+    ansible.builtin.command: mysql -h mysql.gopisri.cloud -uroot -pRoboShop@1 < /app/schema/shipping.sql 
+    when:
+
 
   
  
