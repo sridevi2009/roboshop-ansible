@@ -10,7 +10,7 @@
        state: present
 
   - name: create roboshop user
-    anisible.builtin.user:
+    ansible.builtin.user:
         name: roboshop
 
   - name: recursively remove app directory
