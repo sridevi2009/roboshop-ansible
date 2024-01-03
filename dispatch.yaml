@@ -32,5 +32,31 @@
       dest: /app 
       remote_src: yes 
 
-    
+  - name: download dependenceis
+    ansible.builtin.command: "{{item}}"
+    loop:
+    - go mod init dispatch
+    - go get
+    - go build
+    args:
+     chdir: /app
+
+  - name: copy dispatch service
+    copy:
+      src: dipatch service
+      dest: /etc/systemd/system/dispatch.service  
+
+  - name: daemon reload and start
+    systemd_service:
+      daemon_reload: true
+
+  - name: start and enable dispatch
+    service:
+      name: dispatch
+      state: restarted
+      enabled: yes
+        
+
+       
+        
                
