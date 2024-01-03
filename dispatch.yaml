@@ -43,7 +43,7 @@
 
   - name: copy dispatch service
     copy:
-      src: dipatch service
+      src: dipatch.service
       dest: /etc/systemd/system/dispatch.service  
 
   - name: daemon reload and start
